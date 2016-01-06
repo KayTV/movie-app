@@ -71,3 +71,10 @@ h1 {
 .carousel-control {
   color: black;
 }
+
+.wait-img {
+  -webkit-filter: grayscale(80%);
+  filter: grayscale(80%);
+  height: 50%;
+  width: 50%;
+}
