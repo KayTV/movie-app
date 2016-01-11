@@ -22,6 +22,9 @@ h1 {
     font-size: 11px !important;
     letter-spacing: 4px;
     opacity:0.9;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Add a gray color to all navbar links */
