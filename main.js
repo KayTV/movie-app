@@ -4,12 +4,20 @@ $("#call").on("click", function(){
   var responseType = $("#res").val();
 
 
-$.ajax({
-  url: 'https://www.omdbapi.com/?t='+title+'&y=&plot='+plot+'&r='+responseType,
-  method: "GET",
-  success: function(data) {
-    console.log(data);
-  }
-});
+  $.ajax({
+    url: 'https://www.omdbapi.com/?t='+title+'&y=&plot='+plot+'&r='+responseType,
+    method: "GET",
+    success: function(data) {
+      console.log(data);
+      $("#results").html('  ');
+      $("#results").append("<h2>"+data.Title+"</h2>");
+      $("#results").append("<h3>Director: "+data.Director+"</h3>");
+      $("#results").append("<img src="+data.Poster+">");
+      $("#results").append("<h4>Actors: "+data.Actors+"</h4>");
+      $("#results").append("<h5>Genre: "+data.Genre+", Rated: "+data.Rated+", Released: "+data.Released+"</h5>")
+      $("#results").append("<h4><strong>Plot: </strong>"+data.Plot+"</h4>")
+      $("#title").val('');
+    }
+  });
 
 });
