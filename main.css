@@ -71,7 +71,7 @@ h3 {
 
 .carousel-inner img {
     -webkit-filter: grayscale(80%);
-    filter: grayscale(80%); /* make all photos black and white */
+    filter: grayscale(80%);
     height: 30%;
     width: 30%;
 }
