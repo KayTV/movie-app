@@ -17,7 +17,7 @@
         <div>
       <ul class="nav navbar-nav">
         <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
+        <li class="dropdown" class="active">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Movie Database
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -27,7 +27,7 @@
           </ul>
         </li>
         <li><a href="ratings.html">Ratings</a></li>
-        <li class="active"><a href="my_movies.html">My Movies</a></li>
+        <li><a href="my_movies.html">My Movies</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -37,11 +37,19 @@
   </div>
 </nav>
 <header>
-  <h1>My Movies</h1>
+  <h1>Movie Database</h1>
+  <h3>What's Your Favorite Movie?</h3>
 </header>
+<center><section>
+  <input type="text" id='title' placeholder="Search By Movie Title"><br>
+  <button id='call' type="submit">Search</button><br>
+  <div id='results' class='results'></div>
+</section></center>
   <div>
     <strong><center><p>Page in progress</p></center></strong>
-    <center><img src="http://dreamatico.com/data_images/kitten/kitten-3.jpg" class="wait-img"></center>
+    <center><img src="http://www.southernhillsanimalhospital.com/sites/site-1450/images/kittens.jpg" class="wait-img"></center>
+  </div>
+  <div class="scrolltest">
   </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src='main.js'></script>

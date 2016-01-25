@@ -14,6 +14,11 @@ h1 {
   padding-top: 50px
 }
 
+h3 {
+  text-align: center;
+  font-family: "arial";
+}
+
 /* Add a dark background color with a little bit see-through */
 .navbar {
     margin-bottom: 0;
@@ -61,12 +66,12 @@ h1 {
 
 /* On hover, the dropdown links will turn red */
 .dropdown-menu li a:hover {
-    background-color: red !important;
+    background-color: grey !important;
 }
 
 .carousel-inner img {
     -webkit-filter: grayscale(80%);
-    filter: grayscale(80%); /* make all photos black and white */
+    filter: grayscale(80%);
     height: 30%;
     width: 30%;
 }
@@ -80,4 +85,30 @@ h1 {
   filter: grayscale(80%);
   height: 50%;
   width: 50%;
+}
+
+.results {
+  text-align: center;
+  text-shadow: 1px 1px grey;
+  margin-left: 140px;
+  margin-right: 140px;
+}
+
+input[type = text] {
+  border: 1px solid #999;
+  border-radius: 10px;
+  width: 450px;
+  font-size: 20px;
+  margin: 5px;
+  text-align: center;
+}
+
+button[type = submit] {
+  border: 1px solid #999;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 20px;
+  color: grey;
+  background-color: black;
+  margin: 5px;
 }
