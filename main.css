@@ -112,3 +112,8 @@ button[type = submit] {
   background-color: black;
   margin: 5px;
 }
+
+.myMovie img {
+  height: 300px;
+  width: 200px;
+}
