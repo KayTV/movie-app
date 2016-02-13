@@ -39,10 +39,26 @@
 <header>
   <h1>My Movies</h1>
 </header>
-  <div>
-    <strong><center><p>Page in progress</p></center></strong>
-    <center><img src="http://dreamatico.com/data_images/kitten/kitten-3.jpg" class="wait-img"></center>
+  <div class="container-fluid myMovie" id="myMovie">
   </div>
+  <div>
+  </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <center><div class="modal-body" id="movieDescription">
+            </div></center>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger">Delete From Collection</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src='main.js'></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
