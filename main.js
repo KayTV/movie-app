@@ -3,19 +3,28 @@ $(document).ready(function(){
   var movies = JSON.parse(localStorage.getItem('movies')) || [];
   console.log(movies);
 
-  movies.forEach(function(val) {
+  movies.forEach(function(val, index) {
     console.log(val);
     var div = $('<div>');
     div.addClass('col-xs-3');
-    div.append("<button id=movieInfo><img src="+val.Poster+"></button>");
     div.append("<h4>"+val.Title+"</h4>");
+    div.append("<button id=movieInfo data-index='"+index+"'><img src="+val.Poster+"></button>");
     console.log(div);
     $('#myMovie').append(div);
   })
 
-  $("#movieInfo").on("click", function(){
+  $(document).on("click", "#movieInfo", function(){
     $modal = $('#myModal');
     $modal.modal('show');
+    var currentMovie = $(this).attr("data-index");
+    currentMovie = movies[currentMovie];
+    $("#myModalLabel").html(currentMovie.Title);
+    $("#movieDescription").html("<img src="+currentMovie.Poster+">");
+    $("#movieDescription").append("<h3>Director: "+currentMovie.Director+"</h3>");
+    $("#movieDescription").append("<h4>Actors: "+currentMovie.Actors+"</h4>");
+    $("#movieDescription").append("<h5>Genre: "+currentMovie.Genre+", Rated: "
+    +currentMovie.Rated+", Released: "+currentMovie.Released+"</h5>");
+    $("#movieDescription").append("<h4><strong>Plot: </strong>"+currentMovie.Plot+"</h4>");
   })
 
   $("#call").on("click", function(){
