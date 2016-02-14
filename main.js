@@ -7,17 +7,26 @@ $(document).ready(function(){
     $("#myMovie").html("");
     movies.forEach(function(val, index) {
       console.log(val);
-      var div = $('<div>');
-      div.addClass('col-xs-3');
-      div.append("<h4>"+val.Title+"</h4>");
-      div.append("<button id=movieInfo data-index='"+index+"'><img src="+val.Poster+"></button>");
-      console.log(div);
-      $('#myMovie').append(div);
-    })
+      var $div = $('<div>');
+      $div.addClass('col-xs-3');
+      $div.append("<h4>"+val.Title+"</h4>");
+      $div.append("<button id='movieInfo' data-index='"+index+"'><img src="+val.Poster+"></button>");
+      $div.append("<p>Your Rating: </p>")
+      $div.append("<div class=\"br-wrapper br-theme-fontawesome-stars\"><select class=\"example\"><option value=\"1\">1</option><option value=\'2\'>2</option><option value=\'3\'>3</option><option value=\'4\'>4</option><option value=\'5\'>5</option></select></div>");
+
+      $('#myMovie').append($div);
+      $(function() {
+        $('.example').barrating({
+          theme: 'fontawesome-stars'
+        });
+      });
+      console.log($($div.children()[3]).children());
+    });
   }
   domMovies()
 
   $(document).on("click", "#movieInfo", function(){
+    console.log("still clicking modal");
     $modal = $('#myModal');
     $modal.modal('show');
     var currentIndex = $(this).attr("data-index");
@@ -69,5 +78,6 @@ $(document).ready(function(){
 
   })
 
-});
+})
+
 });
