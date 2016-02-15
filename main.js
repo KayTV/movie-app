@@ -12,15 +12,21 @@ $(document).ready(function(){
       $div.append("<h4>"+val.Title+"</h4>");
       $div.append("<button id='movieInfo' data-index='"+index+"'><img src="+val.Poster+"></button>");
       $div.append("<p>Your Rating: </p>")
-      $div.append("<div class=\"br-wrapper br-theme-fontawesome-stars\"><select class=\"example\"><option value=\"1\">1</option><option value=\'2\'>2</option><option value=\'3\'>3</option><option value=\'4\'>4</option><option value=\'5\'>5</option></select></div>");
+      $div.append("<div class=\"br-wrapper br-theme-fontawesome-stars\"><select id=\"example"+index+"\"><option value=\"1\">1</option><option value=\'2\'>2</option><option value=\'3\'>3</option><option value=\'4\'>4</option><option value=\'5\'>5</option></select></div>");
 
       $('#myMovie').append($div);
+      var rating = val.rating || 1;
       $(function() {
-        $('.example').barrating({
-          theme: 'fontawesome-stars'
+        $('#example'+index).barrating({
+          theme: 'fontawesome-stars',
+          initialRating: rating,
+          onSelect: function(value, text, event) {
+            console.log('arguments', arguments);
+            val.rating = +value;
+            localStorage.setItem('movies', JSON.stringify(movies));
+          }
         });
       });
-      console.log($($div.children()[3]).children());
     });
   }
   domMovies()
@@ -38,14 +44,17 @@ $(document).ready(function(){
     $("#movieDescription").append("<h5>Genre: "+currentMovie.Genre+", Rated: "
     +currentMovie.Rated+", Released: "+currentMovie.Released+"</h5>");
     $("#movieDescription").append("<h4><strong>Plot: </strong>"+currentMovie.Plot+"</h4>");
-    $("#deleteMovie").on("click", function(){
-      movies.splice(currentIndex, 1);
-      localStorage.setItem('movies', JSON.stringify(movies));
-      domMovies();
-      $modal.modal("hide");
-      console.log(currentIndex);
-    })
-  })
+    $("#deleteMovie").attr("data-index", currentIndex);
+  });
+  
+  $("#deleteMovie").on("click", function(){
+    var currentIndex = $(this).attr("data-index");
+    console.log(currentIndex);
+    movies.splice(currentIndex, 1);
+    localStorage.setItem('movies', JSON.stringify(movies));
+    domMovies();
+    $modal.modal("hide");
+  });
 
   $("#call").on("click", function(){
     var title = $("#title").val();
